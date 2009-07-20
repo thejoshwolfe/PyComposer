@@ -3,11 +3,6 @@ import sys
 import random
 from functools import reduce
 
-#imports
-sys.path.append("code")
-from imports import *
-
-
 # make a random 4-bar chord progression
 
 progression = []
