@@ -1,5 +1,5 @@
 
-from chord import Chord
+from composer.chord import Chord
 
 chords = {}
 

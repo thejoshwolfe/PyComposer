@@ -1,7 +1,7 @@
 
 
 class Chord:
-    def __init__(self, tension=None):
+    def __init__(self, name, tension=None):
         self.name = name
         self.tension = tension
 

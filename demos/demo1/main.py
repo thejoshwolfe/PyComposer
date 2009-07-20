@@ -3,14 +3,16 @@ import sys
 import random
 from functools import reduce
 
+from composer.chords import chords
+
 # make a random 4-bar chord progression
 
 progression = []
 for _ in range(4):
-	progression.append(list(data.chords.values())[random.randint(0,len(data.chords)-1)])
+	progression.append(list(chords.values())[random.randint(0,len(chords)-1)])
 
 # end with a 1 chord
-progression.append(data.chords["1"])
+progression.append(chords["1"])
 
 
 # print to console
@@ -24,7 +26,7 @@ print("total tension: " + str(reduce(lambda acc, c: acc + c.tension, progression
 
 
 ## print the list of chords
-#chords = list(data.chords.values())
+#chords = list(chords.values())
 #chords.sort(key=lambda chord: chord.name)
 #for chord in chords:
 #	print(chord)
