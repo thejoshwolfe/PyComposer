@@ -13,5 +13,9 @@ class Note:
         self.number += offset
 
     def getTranslation(self, offset):
-        return Note(self.number + offset)
+        return Note(self.number + offset, self.duration)
+
+    def clone(self):
+        return Note(self.number, self.duration)
+
 

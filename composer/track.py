@@ -2,9 +2,9 @@
 patches = {} # see below for data
 
 class Track:
-    def __init__(self):
+    def __init__(self, instrument=1):
         self.notes = {}
-        self.instrument = 1 # piano
+        self.instrument = instrument
     
 
     def addNote(self, pos, note):

@@ -6,4 +6,11 @@ class Chord:
 
     def __str__(self):
         return ",".join([str(x) for x in self.notes])
+    
+    def setDuration(self, duration):
+        """
+        sets the duration of all the notes in the chord
+        """
+        for note in self.notes:
+            note.duration = duration
 

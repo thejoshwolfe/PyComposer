@@ -24,7 +24,9 @@ def chordGen():
 
     for root in bones:
         offset = randint(-1, 1) * 0
-        chords.append(Chord(root+offset))
+        c = Chord(root+offset)
+        c.setDuration(4)
+        chords.append(c)
 
     return chords
 
@@ -67,8 +69,7 @@ def createMelody(progression):
         # at each beat, pick a random note from the first chord and place it
         for i in range(offset, offset+size):
             index = randint(0,2)
-            note = chord.notes[index]
-            notes[i] = note
+            notes[i] = chord.notes[index].clone()
         
         # iterate through half beats, optionally adding more
         for i in range(offset, offset+size):
@@ -113,8 +114,20 @@ def createMelody(progression):
             # random
             genRandomCrap(12+i*2, 2, progression[3], notes)
 
+    # adjust duration of each note to stop before the next
+    
+    positions = notes.keys()
+    positions.sort()
+    positions.reverse()
+    followingPosition = 16 # start at the end and work backwards
+    for pos in positions:
+        note = notes[pos]
+        note.duration = followingPosition - pos
+        followingPosition = pos
+
+
     # add a final note
-    notes[16] = Note(8)
+    notes[16] = Note(8, 2)
 
     
     return notes
