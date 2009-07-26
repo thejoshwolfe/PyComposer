@@ -5,16 +5,22 @@ from midi.MidiOutFile import MidiOutFile
 from composer import composer
 import os
 
-def noteToMidi(note):
+from composer.note import normalize
+
+def putInScale(note):
     scale = (0, 2, 4, 5, 7, 9, 11)
-    return 0x40+scale[note.number-1]
+    norm = normalize(note.number)
+    return ((note.number - norm) / 7) * 12 + scale[norm-1]
+
+def noteToMidi(note):
+    return 0x40+putInScale(note)
 
 def addChord(chord):
     for note in chord.notes:
         midi.update_time(0)
         midi.note_on(channel=0, note=noteToMidi(note))
 
-    midi.update_time(192)
+    midi.update_time(192*4)
     for note in chord.notes:
         midi.note_off(channel=0, note=noteToMidi(note))
         midi.update_time(0)

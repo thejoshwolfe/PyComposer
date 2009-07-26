@@ -15,7 +15,8 @@ chord_structures = (
     [1, 4, 5, 5],
     [1, 4, 5, 1],
     [1, 4, 1, 5],
-    [1, 2, 3, 4],
+    [1, 6, 4, 5],
+    [2, 4, 2, 1],
 )
 def chordGen():
     bones = chord_structures[randint(0, len(chord_structures)-1)]
@@ -71,7 +72,7 @@ def createMelody(progression):
         
         # iterate through half beats, optionally adding more
         for i in range(offset, offset+size):
-            if random() <= .30:
+            if random() <= .50:
                 if i == offset+size-1 or randint(0,1):
                     baseNote = notes[i]
                 else:
