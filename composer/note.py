@@ -1,7 +1,4 @@
 
-def normalize(number):
-    return ((number - 1) % 7) + 1
-
 class Note:
 
     # number is from 1-7
