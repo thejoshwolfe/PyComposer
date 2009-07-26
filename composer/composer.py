@@ -1,7 +1,7 @@
 from random import randint, random
-from .chord import Chord
-from .song import Song
-from .note import Note
+from chord import Chord
+from song import Song
+from note import Note
 
 __name__ = 'PyComposer'
 __version__ = '0.0.1'

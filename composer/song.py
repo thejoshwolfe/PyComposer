@@ -22,6 +22,43 @@ class Song:
         return self.key + octaveOffset + self.mode[offsetIntoMode]
     
     def writeToMidi(self, filepath):
-        raise(TODO) # :p
+        # convert notes to on- and off-events
+        ON, OFF = range(2)
+        class Event:
+            def __init__(self, note, type):
+                self.note = note
+                self.type = type
+        eventTracks = []
+        for track in self.tracks:
+            events = {}
+            def addEvent(pos, event):
+                if not events.has_key(pos):
+                    events[pos] = []
+                events[pos].append(event)
+            for pos, noteArray in track.notes.items():
+                for note in noteArray:
+                    addEvent(pos, Event(note, ON))
+                    addEvent(pos + note.duration, Event(note, OFF))
+            eventTracks.append(events)
+        return eventTracks
+    
+    def __str__(self):
+        return ",".join([str(t) for t in tracks])
+
+
+
+#from .track import Track
+#from .note import Note
+
+#s = Song()
+#t = Track()
+#s.addTrack(t)
+#t.addNote(0, Note(1))
+#t.addNote(1, Note(2))
+#t.addNote(2, Note(3))
+
+#eventTracks = s.writeToMidi("")
+
+#print eventTracks
 
 

@@ -2,7 +2,7 @@
 # an acoustic grand piano
 
 from midi.MidiOutFile import MidiOutFile
-from composer import composer
+import composer # import composer
 import os
 
 
