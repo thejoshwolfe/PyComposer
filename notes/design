@@ -13,7 +13,13 @@ song arrangement:
     * techno arrangements:
         - IVCVCBCO
         - ICVCVBCO
-        - IVCRVCRBCO
+        want to be theorotically able to generate:
+            - IVCRVCRBCO
+            - VCRVC
+        NOT to generate:
+            - IO
+            - OOO
+
 sections
     * each section has map of excitement level, which dictates tension, volume,
       beat thickness, bass rythms. excitement levels:
@@ -52,6 +58,13 @@ data collection:
     * have it play a simple riff and the user judges how good it sounds.
       the system can improve itself
     
+layers:
+    melody - lead of the song
+    bass - lower hz intstrument
+    percussion
+    harmony 
+    rythmn
 
+     
 
 
