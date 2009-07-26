@@ -5,13 +5,20 @@ class Track:
     def __init__(self, instrument=1):
         self.notes = {}
         self.instrument = instrument
-    
 
     def addNote(self, pos, note):
         if not self.notes.has_key(pos):
             self.notes[pos] = []
         self.notes[pos].append(note)
-
+    
+    def setVelocity(self, velocity):
+        """
+        sets the velocity of every note in the track
+        """
+        for _, noteArray in self.notes.items():
+            for note in noteArray:
+                note.velocity = velocity
+    
     def __str__(self):
         return patches[self.instrument]
 

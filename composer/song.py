@@ -19,9 +19,11 @@ class Song:
         """
         returns the midi pitch (int) for a note in the current key and mode
         """
-        offsetIntoMode = (note.number - 1) % 7 + 1
-        octaveOffset = 12 * (offsetIntoMode - note.number) / 7
-        return self.key + octaveOffset + self.mode[offsetIntoMode - 1]
+        number = note.number - 1
+        
+        offsetIntoMode = number % 7
+        octaveOffset = 12 * (number - offsetIntoMode) / 7
+        return self.key + octaveOffset + self.mode[offsetIntoMode]
     
     def getEventTracks(self):
         """
@@ -71,49 +73,18 @@ class Song:
                 eventArray = events[pos]
                 deltaPos = pos - lastPos
                 midiTime = int(float(deltaPos) * 300) # TODO: wtf
-#                print "----- " + str(pos) + " -----"
                 for event in eventArray:
                     midi.update_time(midiTime)
                     pitch = self.noteToPitch(event.note)
                     if event.type == "on": # TODO on/off
-#                        print str(pitch) + " on"
-                        midi.note_on(channel=i, note=pitch)
+                        midi.note_on(channel=i, note=pitch, velocity=event.note.velocity)
                     else:
-#                        print str(pitch) + " off"
                         midi.note_off(channel=i, note=pitch)
                     midiTime = 0 # remainder of events are simultaneous
                 lastPos = pos
             midi.update_time(0)
             midi.end_of_track()
         midi.eof()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     def __str__(self):
         return ",".join([str(t) for t in tracks])

@@ -51,13 +51,14 @@ pos = 0
 for chord in progression:
     for note in chord.notes:
         chordTrack.addNote(pos, note)
-        print "duration: " + str(note.duration)
     pos += 4
+chordTrack.setVelocity(0x50)
 song.addTrack(chordTrack)
 
 melodyTrack = Track(57)
 for pos, note in melody.items():
     melodyTrack.addNote(pos, note)
+melodyTrack.setVelocity(0x70)
 song.addTrack(melodyTrack)
 
 # write the song to midi
