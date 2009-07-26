@@ -5,9 +5,11 @@ from midi.MidiOutFile import MidiOutFile
 from composer import composer
 import os
 
-from composer.note import normalize
 
 from random import randint
+
+def normalize(number):
+    return ((number - 1) % 7) + 1
 
 def putInScale(note):
     scale = (0, 2, 4, 5, 7, 9, 11)
