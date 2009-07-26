@@ -1,0 +1,57 @@
+styles:
+    * latin
+    * jazz
+    ->* techno
+    * rock
+
+mood:
+    * sad
+    ->* happy
+
+song arrangement:
+    * create different sections which can lead into each other
+    * techno arrangements:
+        - IVCVCBCO
+        - ICVCVBCO
+        - IVCRVCRBCO
+sections
+    * each section has map of excitement level, which dictates tension, volume,
+      beat thickness, bass rythms. excitement levels:
+        - an air plane wing (talking about the graph)
+        - a door stop
+    * types:
+        - verse
+            > prepare you for the chorus
+            > build the melody based of the chord progression and the
+              excitement level map
+        - chorus
+            > establish a pattern, break the pattern, and then come back
+        - instrumental break (R)
+        - bridge
+        - intro
+        - outro
+
+chords:
+    * depending on style
+    * basic structures:
+        1-1-4-5
+        1-1-5-5
+        1-4-5-5
+
+melody:
+    * verse:
+
+
+instrumentation:
+    * have a bank of instruments, with a map on what sounds good with what, and
+      HOW what sounds good with what - meaning does a clarinet sound good with
+      a piano, but only if it uses long notes and the piano uses short notes?
+
+
+data collection:
+    * have it play a simple riff and the user judges how good it sounds.
+      the system can improve itself
+    
+
+
+
